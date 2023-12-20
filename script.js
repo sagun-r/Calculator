@@ -2,10 +2,12 @@ let num1;
 let operator;
 let num2;
 
+//stores final value
 let value;
 
 const btn = document.querySelectorAll(".btn");
 
+//determine what operation to call
 const operate = (num1, operator, num2) => {
   switch (operator) {
     case "+":
