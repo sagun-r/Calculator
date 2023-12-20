@@ -1,0 +1,8 @@
+.container {
+  border: 1px black solid;
+}
+.calculator-body {
+  border: 1px black solid;
+  height: 500px;
+  width: 350px;
+}
