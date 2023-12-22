@@ -1,7 +1,8 @@
 let num1 = 0,
   operator = null,
   num2 = 0,
-  counter = 0;
+  hasOper = false,
+  hasDec = false;
 
 const add = (num1, num2) => {
   let result = num1 + num2;
@@ -44,6 +45,7 @@ const btn = document.querySelectorAll(".btn");
 const operBtn = document.querySelectorAll(".operBtn");
 const equalBtn = document.querySelector(".equalBtn");
 const clearBtn = document.querySelector(".clearBtn");
+const decimalBtn = document.querySelector(".decimalBtn");
 
 //calls function depending on operator used
 const operate = (num1, operator, num2) => {
@@ -75,11 +77,13 @@ btn.forEach((btn) => {
 operBtn.forEach((btn) => {
   btn.addEventListener("click", () => {
     //checks if operator button has already been pressed
-    if (counter == 0) {
-      counter++;
+    if (hasOper == false) {
+      hasDec = false;
+      hasOper = true;
       textbox.value += ` ${btn.textContent} `;
     } else {
       equalBtn.click();
+      hasDec = false;
       if (num2 != "") {
         textbox.value = `${textbox.value} ${btn.textContent} `;
       }
@@ -89,6 +93,7 @@ operBtn.forEach((btn) => {
 
 //adds eventlistner to the equal button
 equalBtn.addEventListener("click", () => {
+  hasDec = false;
   let display = textbox.value;
   const array = display.split(" ");
   num1 = array[0];
@@ -100,11 +105,19 @@ equalBtn.addEventListener("click", () => {
   }
 });
 
+decimalBtn.addEventListener("click", () => {
+  if (hasDec == false) {
+    textbox.value += ".";
+    hasDec = true;
+  }
+});
+
 //adds eventlistner to clear button and sets variables to when pressed default
 clearBtn.addEventListener("click", () => {
   textbox.value = "";
   num1 = 0;
   num2 = 0;
   operator = null;
-  counter = 0;
+  hasOper = false;
+  hasDec = false;
 });
