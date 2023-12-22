@@ -1,18 +1,27 @@
 const add = (num1, num2) => {
-  num1 = Number(num1);
-  num2 = Number(num2);
-  return num1 + num2;
+  let result = num1 + num2;
+  if (result % 1 != 0) {
+    return Math.fround(result).toFixed(3);
+  } else {
+    return result;
+  }
 };
 const subtract = (num1, num2) => {
-  num1 = Number(num1);
-  num2 = Number(num2);
-  return num1 - num2;
+  let result = num1 - num2;
+  if (result % 1 != 0) {
+    return Math.fround(result).toFixed(3);
+  } else {
+    return result;
+  }
 };
 
 const multiply = (num1, num2) => {
-  num1 = Number(num1);
-  num2 = Number(num2);
-  return num1 * num2;
+  let result = num1 * num2;
+  if (result % 1 != 0) {
+    return Math.fround(result).toFixed(3);
+  } else {
+    return result;
+  }
 };
 
 const divide = (num1, num2) => {
@@ -20,9 +29,12 @@ const divide = (num1, num2) => {
     alert("You cannot divide by 0");
     clearBtn.click();
   } else {
-    num1 = Number(num1);
-    num2 = Number(num2);
-    return num1 / num2;
+    let result = num1 / num2;
+    if (result % 1 != 0) {
+      return Math.fround(result).toFixed(3);
+    } else {
+      return result;
+    }
   }
 };
 
@@ -39,13 +51,13 @@ let num1, operator, num2;
 const operate = (num1, operator, num2) => {
   switch (operator) {
     case "+":
-      return (textbox.value = add(num1, num2));
+      return (textbox.value = add(Number(num1), Number(num2)));
     case "-":
-      return (textbox.value = subtract(num1, num2));
+      return (textbox.value = subtract(Number(num1), Number(num2)));
     case "*":
-      return (textbox.value = multiply(num1, num2));
+      return (textbox.value = multiply(Number(num1), Number(num2)));
     case "/":
-      return (textbox.value = divide(num1, num2));
+      return (textbox.value = divide(Number(num1), Number(num2)));
   }
 };
 
@@ -64,11 +76,6 @@ operBtn.forEach((btn) => {
       equalBtn.click();
       textbox.value = `${textbox.value} ${btn.textContent} `;
     }
-    //   operator = btn.textContent;
-    //   num2 = array[2];
-    //   operate(num1, operator, num2);
-    //   console.log("test");
-    // equalBtn.click();
   });
 });
 
