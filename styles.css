@@ -1,5 +1,16 @@
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 40px;
+  background-color: #f2e9e4;
+  border-bottom: 1px #f4f3ee solid;
+  font-family: Arial, sans-serif;
+}
+
 .container {
-  height: 95vh;
+  height: 89vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -43,6 +54,7 @@
   font-size: 25px;
   font-family: Arial, sans-serif;
   color: #3c4043;
+  border-radius: 3px;
 }
 
 .textbox {
