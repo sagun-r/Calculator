@@ -74,7 +74,9 @@ operBtn.forEach((btn) => {
       textbox.value += ` ${btn.textContent} `;
     } else {
       equalBtn.click();
-      textbox.value = `${textbox.value} ${btn.textContent} `;
+      if (num2 != "") {
+        textbox.value = `${textbox.value} ${btn.textContent} `;
+      }
     }
   });
 });
@@ -85,7 +87,9 @@ equalBtn.addEventListener("click", () => {
   num1 = array[0];
   operator = array[1];
   num2 = array[2];
-  operate(num1, operator, num2);
+  if (num2 != "") {
+    operate(num1, operator, num2);
+  }
 });
 
 clearBtn.addEventListener("click", () => {
