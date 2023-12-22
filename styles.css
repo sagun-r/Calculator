@@ -60,8 +60,12 @@
 footer {
   background-color: #f2e9e4;
   border-top: 2px #f4f3ee solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 footer > a > img {
   align-self: flex-end;
   height: 30px;
+  margin-left: 10px;
 }

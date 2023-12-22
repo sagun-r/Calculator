@@ -68,18 +68,21 @@ const operate = (num1, operator, num2) => {
 };
 
 document.addEventListener("keydown", (e) => {
-  console.log(e.key);
   if (e.key <= 9 && e.key >= 0) {
     textbox.value += e.key;
   } else if (e.key == "+" || e.key == "-" || e.key == "*" || e.key == "/") {
     if (hasOper == false) {
-      hasOper = true;
-      textbox.value += ` ${e.key} `;
+      if (textbox.value != "") {
+        hasOper = true;
+        textbox.value += ` ${e.key} `;
+      }
     }
-  } else if (e.key == "=") {
+  } else if (e.key == "=" || e.key == "Enter") {
     equalBtn.click();
   } else if (e.key == "Backspace") {
     deleteBtn.click();
+  } else if (e.key == ".") {
+    decimalBtn.click();
   }
   hasOper = false;
 });
@@ -96,9 +99,11 @@ operBtn.forEach((btn) => {
   btn.addEventListener("click", () => {
     //checks if operator button has already been pressed
     if (hasOper == false) {
-      hasDec = false;
-      hasOper = true;
-      textbox.value += ` ${btn.textContent} `;
+      if (textbox.value != "") {
+        hasDec = false;
+        hasOper = true;
+        textbox.value += ` ${btn.textContent} `;
+      }
     } else {
       equalBtn.click();
       hasDec = false;
