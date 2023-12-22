@@ -46,6 +46,7 @@ const operBtn = document.querySelectorAll(".operBtn");
 const equalBtn = document.querySelector(".equalBtn");
 const clearBtn = document.querySelector(".clearBtn");
 const decimalBtn = document.querySelector(".decimalBtn");
+const deleteBtn = document.querySelector(".deleteBtn");
 
 //calls function depending on operator used
 const operate = (num1, operator, num2) => {
@@ -109,6 +110,16 @@ decimalBtn.addEventListener("click", () => {
   if (hasDec == false) {
     textbox.value += ".";
     hasDec = true;
+  }
+});
+
+//enables way to delete numbers until empty string
+deleteBtn.addEventListener("click", () => {
+  let txt = textbox.value;
+  //checks if character is empty
+  if (txt.charAt(txt.length - 1) != " ") {
+    let deleted = txt.slice(0, -1);
+    textbox.value = deleted;
   }
 });
 
