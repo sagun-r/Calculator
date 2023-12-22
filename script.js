@@ -16,9 +16,14 @@ const multiply = (num1, num2) => {
 };
 
 const divide = (num1, num2) => {
-  num1 = Number(num1);
-  num2 = Number(num2);
-  return num1 / num2;
+  if (num2 == 0) {
+    alert("You cannot divide by 0");
+    clearBtn.click();
+  } else {
+    num1 = Number(num1);
+    num2 = Number(num2);
+    return num1 / num2;
+  }
 };
 
 let counter = 0;
@@ -52,7 +57,18 @@ btn.forEach((btn) => {
 
 operBtn.forEach((btn) => {
   btn.addEventListener("click", () => {
-    textbox.value += ` ${btn.textContent} `;
+    if (counter == 0) {
+      counter++;
+      textbox.value += ` ${btn.textContent} `;
+    } else {
+      equalBtn.click();
+      textbox.value = `${textbox.value} ${btn.textContent} `;
+    }
+    //   operator = btn.textContent;
+    //   num2 = array[2];
+    //   operate(num1, operator, num2);
+    //   console.log("test");
+    // equalBtn.click();
   });
 });
 
@@ -70,4 +86,5 @@ clearBtn.addEventListener("click", () => {
   num1 = 0;
   num2 = 0;
   operator = "";
+  counter = 0;
 });
