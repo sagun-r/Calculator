@@ -55,9 +55,9 @@ const operate = (num1, operator, num2) => {
       return (textbox.value = add(Number(num1), Number(num2)));
     case "-":
       return (textbox.value = subtract(Number(num1), Number(num2)));
-    case "*":
+    case "×":
       return (textbox.value = multiply(Number(num1), Number(num2)));
-    case "/":
+    case "÷":
       if (num2 == 0) {
         clearBtn.click();
         return alert("You cannot divide by 0");
@@ -71,7 +71,7 @@ document.addEventListener("keydown", (e) => {
   console.log(e.key);
   if (e.key <= 9 && e.key >= 0) {
     textbox.value += e.key;
-  } else if (e.key == "+" || e.key == "-" || e.key == "*" || e.key == "/") {
+  } else if (e.key == "+" || e.key == "-" || e.key == "×" || e.key == "÷") {
     if (hasOper == false) {
       if (textbox.value != "") {
         hasOper = true;
