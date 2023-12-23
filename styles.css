@@ -36,12 +36,24 @@ header {
   align-items: end;
 }
 
+.buttons > .deleteBtn:hover {
+  background-color: #d88872;
+}
+
+.buttons > .clearBtn:hover {
+  background-color: #d88872;
+}
+
 .buttons > .deleteBtn {
   background-color: #d77a61;
 }
 
 .buttons > .clearBtn {
   background-color: #d77a61;
+}
+
+.buttons > button:hover {
+  background-color: #e0e0e0;
 }
 
 .buttons > button {
