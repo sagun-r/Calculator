@@ -71,11 +71,15 @@ document.addEventListener("keydown", (e) => {
   console.log(e.key);
   if (e.key <= 9 && e.key >= 0) {
     textbox.value += e.key;
-  } else if (e.key == "+" || e.key == "-" || e.key == "×" || e.key == "÷") {
+  } else if (e.key == "+" || e.key == "-" || e.key == "*" || e.key == "/") {
     if (hasOper == false) {
       if (textbox.value != "") {
         hasOper = true;
-        textbox.value += ` ${e.key} `;
+        if (e.key == "/") {
+          textbox.value += ` ÷ `;
+        } else if (e.key == "*") {
+          textbox.value += ` × `;
+        } else textbox.value += ` ${e.key} `;
       }
     }
   } else if (e.key == "=" || e.key == "Enter") {
