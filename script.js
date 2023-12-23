@@ -79,6 +79,7 @@ document.addEventListener("keydown", (e) => {
       }
     }
   } else if (e.key == "=" || e.key == "Enter") {
+    e.preventDefault();
     equalBtn.click();
     hasOper = false;
   } else if (e.key == "Backspace") {
